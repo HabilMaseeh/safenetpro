@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFENET - FAQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background: url('https://images2.alphacoders.com/138/thumb-1920-13830.jpg') no-repeat center center/cover;
+            overflow-x: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #ff3864;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: #ff3864;
+            left: 50%;
+            bottom: -5px;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .faq-container {
+            margin: 8rem 10%;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .faq-container h1 {
+            font-size: 3rem;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .faq-container .faq-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .faq-container .faq-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .faq-container .faq-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .faq-container .faq-item p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+
+            .faq-container h1 {
+                font-size: 2rem;
+            }
+
+            .faq-container .faq-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .faq-container .faq-item p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">SAFENET</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Plugins</a></li>
+            <li><a href="#" class="active">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="faq-item">
+            <h3>What is SAFENET?</h3>
+            <p>SAFENET is an innovative platform designed to detect and prevent malware, viruses, phishing attacks, and other cyber threats using advanced AI and security technologies.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How does the file analysis work?</h3>
+            <p>Our file analysis system uses advanced algorithms to scan your uploaded files, generating a hash and comparing it with our database of known malicious signatures to detect threats.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What types of files can be analyzed?</h3>
+            <p>You can upload commonly used file types, such as documents, images, and executables, for analysis. Make sure the file size does not exceed the specified limit of 20 MB.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is my data secure?</h3>
+            <p>Yes, SAFENET prioritizes user privacy and security. Uploaded files are handled with the highest level of encryption and are not stored after the analysis is complete.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What should I do if a threat is detected?</h3>
+            <p>If a threat is detected in your file, avoid opening it on your device and ensure that your system's antivirus is updated to handle potential infections effectively.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can SAFENET analyze URLs for phishing?</h3>
+            <p>Yes, you can enter a URL into our analysis tool, which checks it against known phishing and malicious site databases to ensure its authenticity and safety.</p>
+        </div>
+    </div>
+</body>
+</html>

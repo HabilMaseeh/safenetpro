@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFENET - Security Scanner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background: url('https://www.metacompliance.com/wp-content/uploads/2020/03/Ransomware.jpg') no-repeat center center/cover;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff3864;
+        }
+
+        nav .login-button {
+            padding: 0.5rem 1rem;
+            border: 2px solid #ff3864;
+            background: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        nav .login-button:hover {
+            background: #ff3864;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 0 10%;
+            margin-top: 5rem;
+        }
+
+        .text-content {
+            max-width: 50%;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .text-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .text-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .text-content button {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #ff3864;
+            background: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .text-content button:hover {
+            background: #ff3864;
+            color: #fff;
+        }
+
+        .upload-section {
+            text-align: center;
+            animation: slideIn 2s ease-in-out;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 40%;
+        }
+
+        .upload-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .upload-section .input-box,
+        .upload-section .upload-box {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 2px solid #fff;
+            background: none;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .upload-section .upload-box {
+            cursor: pointer;
+        }
+
+        .upload-section .input-box:focus,
+        .upload-section .upload-box:focus {
+            outline: none;
+            border-color: #ff3864;
+            background: rgba(255, 56, 100, 0.3);
+        }
+
+        .upload-section p {
+            font-size: 1rem;
+            margin-top: 1rem;
+            color: #ff3864;
+        }
+
+        .upload-section button {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #ff3864;
+            background: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .upload-section button:hover {
+            background: #ff3864;
+            color: #fff;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #ddd;
+            height: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #ff3864;
+            border-radius: 5px;
+            transition: width 2s ease-out;
+        }
+
+        .file-name {
+            display: none;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        #result, #urlResult {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">SAFENET</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Plugins</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="text-content">
+            <h1>Unified System <br> Of Malware Virus & Phishing Detection</h1>
+            <p>Our innovative system detects malware, viruses, trojans, and phishing attacks using advanced AI techniques. With user-friendly, efficient, and secure technology, we ensure comprehensive protection against cyber threats while maintaining seamless usability.</p>
+            <button>More Information</button>
+        </div>
+
+        <div class="upload-section">
+            <h2>File and URL Analysis</h2>
+            
+            <!-- File Upload Form -->
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="fileInput" class="upload-box" name="file" required>
+                <button type="submit">Scan File for Viruses</button>
+                <div id="fileResult"></div>
+            </form>
+
+            <!-- URL Check Form -->
+            <form id="urlForm">
+                <input type="text" id="urlInput" class="input-box" placeholder="Enter URL to check for phishing" required>
+                <button type="submit">Check URL Safety</button>
+                <div id="urlResult"></div>
+            </form>
+
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <div id="fileName" class="file-name"></div>
+        </div>
+    </div>
+
+    <script>
+        // File Scanning
+        document.getElementById("uploadForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const fileInput = document.getElementById("fileInput");
+            const fileResult = document.getElementById("fileResult");
+            const progressContainer = document.getElementById("progressContainer");
+            const progressBar = document.getElementById("progressBar");
+            const fileName = document.getElementById("fileName");
+
+            if (fileInput.files[0]) {
+                // Show progress bar
+                progressContainer.style.display = "block";
+                progressBar.style.width = "0%";
+                
+                // Show file name
+                fileName.textContent = "Scanning: " + fileInput.files[0].name;
+                fileName.style.display = "block";
+
+                // Animate progress bar
+                setTimeout(() => progressBar.style.width = "100%", 100);
+
+                const formData = new FormData();
+                formData.append("file", fileInput.files[0]);
+
+                fetch("/upload", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    progressBar.style.width = "0%";
+                    
+                    if (data.is_malicious) {
+                        fileResult.textContent = data.message;
+                        fileResult.style.color = "red";
+                        fileResult.style.backgroundColor = "rgba(255, 0, 0, 0.1)";
+                    } else {
+                        fileResult.textContent = data.message;
+                        fileResult.style.color = "green";
+                        fileResult.style.backgroundColor = "rgba(0, 255, 0, 0.1)";
+                    }
+                })
+                .catch(error => {
+                    fileResult.textContent = "Error: " + error.message;
+                    fileResult.style.color = "red";
+                });
+            }
+        });
+
+        // URL Scanning
+        document.getElementById("urlForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const urlInput = document.getElementById("urlInput").value;
+            const urlResult = document.getElementById("urlResult");
+
+            if (urlInput) {
+                fetch("/check-url", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ url: urlInput })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "warning") {
+                        urlResult.textContent = data.message;
+                        urlResult.style.color = "red";
+                        urlResult.style.backgroundColor = "rgba(255, 0, 0, 0.1)";
+                    } else {
+                        urlResult.textContent = data.message;
+                        urlResult.style.color = "green";
+                        urlResult.style.backgroundColor = "rgba(0, 255, 0, 0.1)";
+                    }
+                })
+                .catch(error => {
+                    urlResult.textContent = "Error: " + error.message;
+                    urlResult.style.color = "red";
+                });
+            }
+        });
+    </script>
+</body>
+</html>
