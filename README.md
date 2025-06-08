@@ -1,5 +1,5 @@
  This Final Year Project focuses on developing a comprehensive cybersecurity solution for
- phishing URL detection and malware analysis using dual approaches: signature-based
+ phishing URL detection and malware analysis using hybrid approaches: signature-based
  matching and machine learning techniques. For phishing URL detection, the system
  implements a signature-based method that compares URLs against known phishing
  datasets, alongside a Random Forest-based machine learning model that analyzes 30
